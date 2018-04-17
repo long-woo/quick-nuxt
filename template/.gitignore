@@ -13,4 +13,6 @@ dist
 yarn.lock
 package-lock.json
 
+sw.*
+
 .DS_Store

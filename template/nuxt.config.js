@@ -33,6 +33,7 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/pwa',
     'bootstrap-vue/nuxt'
   ],
   axios: {
