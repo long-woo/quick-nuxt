@@ -60,6 +60,10 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+
+      if (isClient) {
+        config.entry.vendor.unshift('babel-polyfill')
+      }
     }
   }
 }
