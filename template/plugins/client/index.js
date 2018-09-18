@@ -2,7 +2,6 @@ import Vue from 'vue'
 
 // event-bus
 import EventBus from '@/utils/event-bus'
-
 {{#plugins}}
 // sweetalert
 import SweetAlert from 'sweetalert'
@@ -32,5 +31,4 @@ Vue.use(VeeValidate, {
 Vue.webUploader = Vue.prototype.$webUploader = WebUploader
 Vue.sweetAlert = Vue.prototype.$sweetAlert = SweetAlert
 {{/plugins}}
-
 Vue.eventBus = Vue.prototype.$eventBus = EventBus

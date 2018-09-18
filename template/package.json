@@ -25,6 +25,10 @@
     "nuxt": "^1.0.0"
   },
   "devDependencies": {
+    {{#useSass}}
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    {{/useSass}}
     "autoprefixer": "^8.2.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",

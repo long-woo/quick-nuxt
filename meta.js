@@ -40,6 +40,10 @@ module.exports = {
       type: 'confirm',
       message: 'Install some plugins (vee-validate, sweetalert, webuploader)'
     },
+    useSass: {
+      type: 'confirm',
+      message: 'Whether to use sass(scss)？'
+    },
     autoInstall: {
       type: 'list',
       message: 'Should we run `npm install` for you after the project has been created? (recommended)',

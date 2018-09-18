@@ -9,14 +9,14 @@ const getters = {
 }
 
 const mutations = {
-  [SET_USERNAME] (state, name) {
+  [types.SET_USERNAME] (state, name) {
     state.userName = name
   }
 }
 
 const actions = {
   setUserName ({commit, state}, name) {
-    commit(SET_USERNAME, name)
+    commit(types.SET_USERNAME, name)
   }
 }
 

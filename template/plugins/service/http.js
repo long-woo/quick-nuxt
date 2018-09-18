@@ -1,7 +1,7 @@
 // https://axios.nuxtjs.org/
 import ApiFactory from '@/api'
 
-export default function ({ $axios, redirect }) {
+export default function ({ $axios, redirect }, inject) {
   const api = ApiFactory($axios)
 
   /**
