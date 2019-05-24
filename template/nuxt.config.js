@@ -29,12 +29,10 @@ module.exports = {
     // Server-side noly
     '~/plugins/service',
     // Client-side only
-    {src: '~/plugins/client', ssr: false}
+    {src: '~/plugins/client', mode: 'client'}
   ],
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    'bootstrap-vue/nuxt'
+    '@nuxtjs/axios'
   ],
   axios: {
     prefix: process.env.NODE_ENV !== 'production' ? '/dev' : '/api',
@@ -59,10 +57,6 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
-      }
-
-      if (isClient) {
-        config.entry.vendor.unshift('babel-polyfill')
       }
     }
   }
