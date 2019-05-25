@@ -1,3 +1,3 @@
-import http from './http'
+import axios from './axios'
 
-export default http
+export default axios

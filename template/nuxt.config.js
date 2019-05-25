@@ -1,4 +1,6 @@
-module.exports = {
+export default {
+  mode: 'universal',
+
   /*
   ** Headers of the page
   */
@@ -12,16 +14,20 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [{ src: `https://hm.baidu.com/hm.js?${process.env.NODE_ENV === 'production' ? '' : ''}` }]
   },
+  
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+
   /**
    * css
    */
-  css: ['~/styles/site.css'],
+  css: [''],
+
   /**
    * plugins
    */
@@ -31,10 +37,19 @@ module.exports = {
     // Client-side only
     {src: '~/plugins/client', mode: 'client'}
   ],
+
+  /*
+   ** Nuxt.js modules
+   */
   modules: [
     '@nuxtjs/axios'
   ],
+
+  /*
+   ** Axios module configuration
+   */
   axios: {
+    // See https://github.com/nuxt-community/axios-module#options
     prefix: process.env.NODE_ENV !== 'production' ? '/dev' : '/api',
     proxy: true
   },
@@ -42,12 +57,13 @@ module.exports = {
     '/dev': {target: 'http(s)://API_URL_DEV', pathRewrite: {'^/dev/': ''}},
     '/api': {target: 'http(s)://API_URL_PRO', pathRewrite: {'^/api/': ''}}
   },
+
   /*
   ** Build configuration
   */
   build: {
     /*
-    ** Run ESLint on save
+    ** You can extend webpack config here
     */
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {

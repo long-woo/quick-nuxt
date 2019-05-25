@@ -16,12 +16,19 @@ export default function ({ $axios, redirect }, inject) {
 
   $axios.onResponse(response => {
     console.log(response)
+    return response.data
   })
 
   $axios.onError(error => {
-    const code = parseInt(error.response && error.response.status)
-    if (code === 400) {
-      redirect('/error')
-    }
+    // const code = parseInt(error.response && error.response.status)
+    // if (code === 400) {
+    //   redirect('/error')
+    // }
+    const res = error.response || {}
+    const data = res.data || {}
+    const code = data.code || 404
+    const message = data.message || data.desc || '请求出错啦^o^'
+
+    return {code, message}
   })
 }
