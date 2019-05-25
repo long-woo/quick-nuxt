@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'blackboard-h5',
+      name: '{{ name }}',
       port: 9000,
       script: 'nuxt start',
       watch: true,

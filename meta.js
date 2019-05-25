@@ -1,11 +1,6 @@
 const path = require('path')
 
-const {
-  sortDependencies,
-  installDependencies,
-  runLintFix,
-  printMessage
-} = require('./utils')
+const { sortDependencies, installDependencies, runLintFix, printMessage } = require('./utils')
 
 module.exports = {
   helpers: {
@@ -16,53 +11,60 @@ module.exports = {
 
       return options.inverse(this)
     },
+    if_neq(v1, v2, options) {
+      if (v1 != v2) {
+        return options.fn(this)
+      }
+
+      return options.inverse(this)
+    },
     escape: function(value) {
-      return value.replace(/'/g, '&apos;');
+      return value.replace(/'/g, '&apos;')
     }
   },
   prompts: {
     name: {
       type: 'string',
       required: true,
-      message: 'Project name'
+      message: '项目名：'
     },
     description: {
       type: 'string',
       required: false,
-      message: 'Project description',
+      message: '项目描述：',
       default: 'A Nuxt.js project'
     },
     author: {
       type: 'string',
-      message: 'Author'
+      message: '作者：'
     },
-    plugins: {
-      type: 'confirm',
-      message: 'Install some plugins (vee-validate, sweetalert, webuploader)'
-    },
-    useSass: {
-      type: 'confirm',
-      message: 'Whether to use sass(scss)？'
-    },
+    // plugins: {
+    //   type: 'confirm',
+    //   message: 'Install some plugins (vee-validate, sweetalert, webuploader)'
+    // },
     autoInstall: {
       type: 'list',
-      message: 'Should we run `npm install` for you after the project has been created? (recommended)',
-      choices: [{
-        name: 'Yes, use NPM',
-        value: 'npm',
-        short: 'npm'
-      }, {
-        name: 'Yes, use Yarn',
-        value: 'yarn',
-        short: 'yarn'
-      }, {
-        name: 'No, I will handle that myself',
-        value: false,
-        short: 'no'
-      }]
+      message: '选择安装依赖方式',
+      choices: [
+        {
+          name: '使用 NPM',
+          value: 'npm',
+          short: 'npm'
+        },
+        {
+          name: '使用 Yarn',
+          value: 'yarn',
+          short: 'yarn'
+        },
+        {
+          name: '自定义',
+          value: false,
+          short: 'no'
+        }
+      ]
     }
   },
-  complete: function(data, {chalk}) {
+  complete: function(data, { chalk }) {
     const green = chalk.green
 
     sortDependencies(data, green)
@@ -84,4 +86,4 @@ module.exports = {
       printMessage(data, chalk)
     }
   }
-};
+}
