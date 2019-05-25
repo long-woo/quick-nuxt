@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build --universal",
-    "build-test": "NODE_ENV=development nuxt build --universal",
+    "build:test": "NODE_ENV=development nuxt build --universal",
     "test": "pm2 start ecosystem.config.js --env test",
     "start": "pm2 start ecosystem.config.js --env production",
     "generate": "nuxt generate",
