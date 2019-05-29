@@ -1,4 +1,2 @@
-export default (axios) => {
-  return {
-  }
-}
+export default axios => ({
+})
