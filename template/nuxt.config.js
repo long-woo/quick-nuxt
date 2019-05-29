@@ -2,31 +2,24 @@ export default {
   mode: 'universal',
 
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: '{{ name }}',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
-      { name: 'keywords', content: '{{ name }}'},
-      { hid: 'description', name: 'description', content: '{{escape description }}' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
+    meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }, { name: 'keywords', content: '{{ name }}' }, { hid: 'description', name: 'description', content: '{{escape description }}' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [{ src: `https://hm.baidu.com/hm.js?${process.env.NODE_ENV === 'production' ? '' : ''}` }]
   },
-  
+
   /*
-  ** Customize the progress bar color
-  */
+   ** Customize the progress bar color
+   */
   loading: { color: '#3B8070' },
 
   /**
    * css
    */
-  css: [''],
+  css: [],
 
   /**
    * plugins
@@ -35,15 +28,13 @@ export default {
     // Server-side noly
     '~/plugins/service',
     // Client-side only
-    {src: '~/plugins/client', mode: 'client'}
+    { src: '~/plugins/client', mode: 'client' }
   ],
 
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    '@nuxtjs/axios'
-  ],
+  modules: ['@nuxtjs/axios'],
 
   /*
    ** Axios module configuration
@@ -54,18 +45,18 @@ export default {
     proxy: true
   },
   proxy: {
-    '/dev': {target: 'http(s)://API_URL_DEV', pathRewrite: {'^/dev/': ''}},
-    '/api': {target: 'http(s)://API_URL_PRO', pathRewrite: {'^/api/': ''}}
+    '/dev': { target: 'http(s)://API_URL_DEV', pathRewrite: { '^/dev/': '' } },
+    '/api': { target: 'http(s)://API_URL_PRO', pathRewrite: { '^/api/': '' } }
   },
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** You can extend webpack config here
-    */
-    extend (config, { isDev, isClient }) {
+     ** You can extend webpack config here
+     */
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
