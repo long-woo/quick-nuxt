@@ -19,7 +19,7 @@ export default {
   /**
    * css
    */
-  css: [],
+  css: ['~/styles/site.scss'],
 
   /**
    * plugins

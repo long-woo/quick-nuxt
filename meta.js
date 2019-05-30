@@ -38,10 +38,27 @@ module.exports = {
       type: 'string',
       message: '作者：'
     },
-    // plugins: {
-    //   type: 'confirm',
-    //   message: 'Install some plugins (vee-validate, sweetalert, webuploader)'
-    // },
+    deploy: {
+      type: 'list',
+      message: '选择部署的方式',
+      choices: [
+        {
+          name: '使用 PM2',
+          value: 'pm2',
+          short: 'pm2'
+        },
+        {
+          name: '使用 Docker',
+          value: 'docker',
+          short: 'docker'
+        },
+        {
+          name: '自定义',
+          value: false,
+          short: 'no'
+        }
+      ]
+    },
     autoInstall: {
       type: 'list',
       message: '选择安装依赖方式',
@@ -63,6 +80,11 @@ module.exports = {
         }
       ]
     }
+  },
+  filters: {
+    'ecosystem.config.js': "deploy && deploy === 'pm2'",
+    '.dockerignore': "deploy && deploy === 'docker'",
+    Dockerfile: "deploy && deploy === 'docker'"
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
