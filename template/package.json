@@ -12,7 +12,7 @@
     "test": "pm2 start ecosystem.config.js --env test",
     "start": "pm2 start ecosystem.config.js --env production",
     {{/if_eq}}
-    {{else}}
+    {{#else}}
     "start": "nuxt start",
     {{/else}}
     "generate": "nuxt generate",
