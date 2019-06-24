@@ -10,7 +10,7 @@ Project template from [long-woo/quick-nuxt](https://github.com/long-woo/quick-nu
 # 安装依赖
 $ npm install # 或 yarn
 
-# serve with hot reload at localhost:3000
+# serve with hot reload at localhost:{{serverPort}}
 $ npm run dev
 
 # 测试环境，使用 PM2 部署和管理

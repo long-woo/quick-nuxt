@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: '{{ name }}',
-      port: 9000,
+      port: {{serverPort}},
       script: 'nuxt start',
       watch: true,
       env: {

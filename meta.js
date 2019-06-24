@@ -18,7 +18,10 @@ module.exports = {
 
       return options.inverse(this)
     },
-    escape: function(value) {
+    is_empty(value) {
+      return value.toString().trim() === ''
+    },
+    escape(value) {
       return value.replace(/'/g, '&apos;')
     }
   },
@@ -37,6 +40,14 @@ module.exports = {
     author: {
       type: 'string',
       message: '作者：'
+    },
+    serverPort: {
+      type: 'number',
+      message: '网站端口（2700 开始，默认值是 3000）：'
+    },
+    baiduStatistics: {
+      type: 'string',
+      message: '百度统计 Id（测试环境）：'
     },
     deploy: {
       type: 'list',
