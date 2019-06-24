@@ -10,16 +10,16 @@ export default function ({ $axios, redirect }, inject) {
    */
   inject('api', api)
 
-  $axios.onRequest(config => {
+  $axios.onRequest((config) => {
     console.log('Making request to ' + config.url)
   })
 
-  $axios.onResponse(response => {
+  $axios.onResponse((response) => {
     console.log(response)
     return response.data
   })
 
-  $axios.onError(error => {
+  $axios.onError((error) => {
     // const code = parseInt(error.response && error.response.status)
     // if (code === 400) {
     //   redirect('/error')
@@ -29,6 +29,6 @@ export default function ({ $axios, redirect }, inject) {
     const code = data.code || 404
     const message = data.message || data.desc || '请求出错啦^o^'
 
-    return {code, message}
+    return { code, message }
   })
 }

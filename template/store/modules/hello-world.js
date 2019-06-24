@@ -1,21 +1,21 @@
 import * as types from '../mutation-types'
 
-const state = {
+const state = () => ({
   userName: ''
-}
+})
 
 const getters = {
   userName: state => state.userName
 }
 
 const mutations = {
-  [types.SET_USERNAME] (state, name) {
+  [types.SET_USERNAME](state, name) {
     state.userName = name
   }
 }
 
 const actions = {
-  setUserName ({commit, state}, name) {
+  setUserName({ commit, state }, name) {
     commit(types.SET_USERNAME, name)
   }
 }

@@ -1,5 +1,5 @@
-import posterData from './posterData'
+import HelloWorld from './hello-world'
 
 export default {
-  posterData
+  HelloWorld
 }

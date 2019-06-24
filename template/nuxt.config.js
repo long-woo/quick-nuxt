@@ -14,6 +14,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]{{#if_neq baiduStatistics ""}},
     script: [{ src: `https://hm.baidu.com/hm.js?${process.env.NODE_ENV === 'production' ? '' : '{{baiduStatistics}}'}` }]
     {{/if_neq}}
+
   },
 
   /*
