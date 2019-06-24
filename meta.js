@@ -43,7 +43,8 @@ module.exports = {
     },
     serverPort: {
       type: 'number',
-      message: '网站端口（2700 开始，默认值是 3000）：'
+      message: '网站端口（2700 开始，默认值是 3000）：',
+      default: 3000
     },
     baiduStatistics: {
       type: 'string',
