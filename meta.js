@@ -18,9 +18,6 @@ module.exports = {
 
       return options.inverse(this)
     },
-    is_empty(value) {
-      return value.toString().trim() === ''
-    },
     escape(value) {
       return value.replace(/'/g, '&apos;')
     }

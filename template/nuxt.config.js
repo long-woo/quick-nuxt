@@ -11,9 +11,9 @@ export default {
   head: {
     title: '{{ name }}',
     meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }, { name: 'keywords', content: '{{ name }}' }, { hid: 'description', name: 'description', content: '{{escape description }}' }],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]{{#baiduStatistics}},
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]{{#if_neq baiduStatistics ""}},
     script: [{ src: `https://hm.baidu.com/hm.js?${process.env.NODE_ENV === 'production' ? '' : '{{baiduStatistics}}'}` }]
-    {{/baiduStatistics}}
+    {{/if_neq}}
   },
 
   /*
