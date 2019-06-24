@@ -11,10 +11,9 @@
     {{#if_eq deploy "pm2"}}
     "test": "pm2 start ecosystem.config.js --env test",
     "start": "pm2 start ecosystem.config.js --env production",
-    {{/if_eq}}
-    {{#else}}
+    {{else}}
     "start": "nuxt start",
-    {{/else}}
+    {{/if_eq}}
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
