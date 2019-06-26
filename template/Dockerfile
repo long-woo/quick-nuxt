@@ -4,7 +4,7 @@ ENV NODE_ENV=production
 
 ENV HOST 0.0.0.0
 
-EXPOSE {{serverPort}}
+EXPOSE {{ serverPort }}
 
 RUN mkdir -p /nuxt_projects/{{ name }}
 
