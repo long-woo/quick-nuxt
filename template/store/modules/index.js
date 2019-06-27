@@ -1,4 +1,4 @@
-import HelloWorld from './hello-world'
+import * as HelloWorld from './hello-world'
 
 export default {
   HelloWorld

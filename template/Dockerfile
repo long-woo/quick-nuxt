@@ -1,7 +1,5 @@
 FROM node:10.10.0
 
-ENV NODE_ENV=production
-
 ENV HOST 0.0.0.0
 
 EXPOSE {{ serverPort }}
@@ -13,6 +11,8 @@ COPY . /nuxt_projects/{{ name }}
 WORKDIR /nuxt_projects/{{ name }}
 
 RUN yarn config set registry 'https://registry.npm.taobao.org'
+
+RUN yarn config set sass_binary_site 'https://npm.taobao.org/mirrors/node-sass'
 
 RUN yarn install
 
