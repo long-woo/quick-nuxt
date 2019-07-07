@@ -15,4 +15,4 @@ RUN yarn config set registry "https://registry.npm.taobao.org" && \
   yarn install && \
   yarn build
 
-CMD ["run", "start"]
+CMD ["yarn", "run", "start"]
