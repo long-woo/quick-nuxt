@@ -10,12 +10,9 @@ COPY . /nuxt_projects/{{ name }}
 
 WORKDIR /nuxt_projects/{{ name }}
 
-RUN yarn config set registry 'https://registry.npm.taobao.org'
+RUN yarn config set registry "https://registry.npm.taobao.org" && \
+  yarn config set sass_binary_site "https://npm.taobao.org/mirrors/node-sass" && \
+  yarn install && \
+  yarn build
 
-RUN yarn config set sass_binary_site 'https://npm.taobao.org/mirrors/node-sass'
-
-RUN yarn install
-
-RUN yarn build
-
-CMD yarn start
+CMD ["run", "start"]
